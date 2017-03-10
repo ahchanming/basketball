@@ -13,7 +13,7 @@ public class Player implements BallSkillHandler {
 
     @Override
     public BaseSkill getBaseSkill() {
-        return null;
+        return this.baseSkill;
     }
 
     @Override

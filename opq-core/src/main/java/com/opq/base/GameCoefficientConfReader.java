@@ -1,10 +1,13 @@
 package com.opq.base;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Map;
 
 /**
  * Created by opq.chen on 2017/3/8.
  */
+@Component
 public class GameCoefficientConfReader implements ConfigureReader{
     private Map<String, String> data;
 

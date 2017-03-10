@@ -14,6 +14,15 @@ public class GameContext {
     private List<Player> guestTeamPlayers;
     private List<Player> selectA;
     private List<Player> selectB;
+    private ShotContext shotContext;
+
+    public ShotContext getShotContext() {
+        return shotContext;
+    }
+
+    public void setShotContext(ShotContext shotContext) {
+        this.shotContext = shotContext;
+    }
 
     public List<String> getOutputs() {
         return outputs;
