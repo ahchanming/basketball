@@ -16,6 +16,8 @@ public class FreeShotState extends ShotState{
     @Autowired
     GameCoefficientConfReader gameCoefficientConfReader;
 
+
+
     @Override
     protected double calcInRate(GameContext context) {
         Player a = context.getSelectA().get(0);
@@ -29,9 +31,20 @@ public class FreeShotState extends ShotState{
         int shotTime = shotContext.getFreeShotTime();
         double shotRate = calcInRate(context);
         for (int i = 0;i < shotTime - 1; ++i){
-            System.out.println("");
+            boolean in = this.isIn(shotRate);
+            if (in){
+                System.out.println("Shot is in");
+            }else{
+                System.out.println("Shot not in");
+            }
         }
-
+        boolean in = this.isIn(shotRate);
+        if (in){
+            System.out.println("Shot is in");
+        }else{
+            System.out.println("Shot is not in");
+            context.setGameState(StateFactory.getReboundState());
+        }
         return null;
     }
 

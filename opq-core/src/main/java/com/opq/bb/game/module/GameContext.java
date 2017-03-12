@@ -1,6 +1,7 @@
 package com.opq.bb.game.module;
 
 import com.opq.bb.elements.member.Player;
+import com.opq.bb.game.states.State;
 
 import java.util.List;
 
@@ -14,7 +15,25 @@ public class GameContext {
     private List<Player> guestTeamPlayers;
     private List<Player> selectA;
     private List<Player> selectB;
+    private Integer selectTeam;
+    private State gameState;
     private ShotContext shotContext;
+
+    public Integer getSelectTeam() {
+        return selectTeam;
+    }
+
+    public void setSelectTeam(Integer selectTeam) {
+        this.selectTeam = selectTeam;
+    }
+
+    public State getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(State gameState) {
+        this.gameState = gameState;
+    }
 
     public ShotContext getShotContext() {
         return shotContext;
