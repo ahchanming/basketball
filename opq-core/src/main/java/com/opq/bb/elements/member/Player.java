@@ -10,6 +10,10 @@ public class Player extends MemberBase implements BallSkillHandler {
     private BaseSkill baseSkill;
     private BaseSkill upperLimitBaseSkill;
 
+    public Player(){
+        this.baseSkill = new BaseSkill();
+        this.upperLimitBaseSkill = new BaseSkill();
+    }
 
     @Override
     public BaseSkill getBaseSkill() {
