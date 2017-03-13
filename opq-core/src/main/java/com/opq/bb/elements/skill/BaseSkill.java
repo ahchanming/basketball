@@ -20,6 +20,15 @@ public class BaseSkill {
     private int dump;
     private int strong;
     private int energy;
+    private int height;
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
     public int getShot() {
         return shot;

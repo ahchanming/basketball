@@ -1,5 +1,6 @@
 package com.opq.bb.game.states;
 
+import com.opq.bb.elements.member.Player;
 import com.opq.bb.game.module.GameContext;
 
 /**
@@ -16,6 +17,14 @@ public abstract class ShotState implements State{
 
     protected boolean isIn(double rate){
         return Math.random() * 1000 < rate;
+    }
+
+    protected boolean isBlock(Player A, Player B){
+        return false;
+    }
+
+    protected boolean isFoul(Player A, Player B){
+        return false;
     }
 
     @Override
