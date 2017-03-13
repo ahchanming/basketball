@@ -10,6 +10,10 @@ public class FreeShotComment implements IComment{
     @Override
     public String getComment(GameContext context, Integer result) {
         String playerName = context.getSelectA().get(0).getName();
-        return playerName + "free shot in!";
+        if (result == 0){
+            return playerName + " free shot in!";
+        }else{
+            return playerName + " not in";
+        }
     }
 }

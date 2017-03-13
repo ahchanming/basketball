@@ -29,6 +29,7 @@ public abstract class ShotState implements State{
 
     @Override
     public void handler(GameContext context) {
+        context.setGameState(this.getShotResult(context));
         //计算概率
         //计分
         //取得下一个状态

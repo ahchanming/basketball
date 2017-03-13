@@ -10,6 +10,7 @@ import java.util.List;
  * Created by opq.chen on 2017/3/8.
  */
 public class GameContext {
+    private Integer ballControll;
     private List<String> outputs;
     private List<Player> homeTeamPlayers;
     private List<Player> guestTeamPlayers;
@@ -18,6 +19,23 @@ public class GameContext {
     private Integer selectTeam;
     private State gameState;
     private ShotContext shotContext;
+    private ScoreStatistics scoreStatistics;
+
+    public ScoreStatistics getScoreStatistics() {
+        return scoreStatistics;
+    }
+
+    public void setScoreStatistics(ScoreStatistics scoreStatistics) {
+        this.scoreStatistics = scoreStatistics;
+    }
+
+    public Integer getBallControll() {
+        return ballControll;
+    }
+
+    public void setBallControll(Integer ballControll) {
+        this.ballControll = ballControll;
+    }
 
     public Integer getSelectTeam() {
         return selectTeam;
@@ -81,5 +99,9 @@ public class GameContext {
 
     public void setSelectB(List<Player> selectB) {
         this.selectB = selectB;
+    }
+
+    public void execute(){
+        this.getGameState().handler(this);
     }
 }
