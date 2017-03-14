@@ -14,6 +14,7 @@ public class BaseSkill {
     //defence
     private int block;
     private int steal;
+    private int rebound;
 
     //base
     private int speed;
@@ -21,6 +22,14 @@ public class BaseSkill {
     private int strong;
     private int energy;
     private int height;
+
+    public int getRebound() {
+        return rebound;
+    }
+
+    public void setRebound(int rebound) {
+        this.rebound = rebound;
+    }
 
     public int getHeight() {
         return height;
