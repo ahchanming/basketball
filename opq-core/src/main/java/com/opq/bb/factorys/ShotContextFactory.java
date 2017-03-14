@@ -6,6 +6,11 @@ import com.opq.bb.game.module.ShotContext;
  * Created by opq.chen on 2017/3/13.
  */
 public class ShotContextFactory {
+    public static ShotContext createShotContext(){
+        ShotContext shotContext = new ShotContext();
+        return shotContext;
+    }
+
     public static ShotContext createFreeShotContext(){
         ShotContext shotContext = new ShotContext();
         shotContext.setFreeShotTime(3);

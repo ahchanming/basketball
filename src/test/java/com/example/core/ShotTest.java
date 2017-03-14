@@ -26,6 +26,7 @@ public class ShotTest {
 		player.setName("opq");
 		player.setId("000001");
 		player.getBaseSkill().setFreeShot(800);
+		player.getBaseSkill().setShot(800);
 		list.add(player);
 		return list;
 	}
@@ -60,5 +61,29 @@ public class ShotTest {
 		for (String str : context.getOutputs()){
 			System.out.println(str);
 		}
+	}
+
+	@Test
+	public void testTwoShot(){
+		System.out.println("************** Test Two Shot ************************");
+		List<Player> homeTeam = createHomeTeam();
+		List<Player> guestTeam = createGuestTeam();
+
+		GameContext context = GameFactory.createNewGame(homeTeam, guestTeam);
+		context.setSelectA(homeTeam);
+		context.setSelectB(guestTeam);
+		context.setBallControll(0);
+		context.setOutputs(new ArrayList<>());
+
+		context.setShotContext(ShotContextFactory.createShotContext());
+		context.setGameState(StateFactory.getTwoPointShotState());
+
+		context.execute();
+
+		System.out.println("************************ Two Point Result ******************************");
+		for (String str : context.getOutputs()){
+			System.out.println(str);
+		}
+		System.out.println("Test two over");
 	}
 }

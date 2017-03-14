@@ -12,6 +12,7 @@ import java.util.Map;
 public class ScoreStatistics {
     public interface SHOT_TYPE{
         Integer FREE_SHOT = 0;
+        Integer TWP_POINT_SHOT = 1;
     }
 
     private Integer homeTeamScore;
@@ -32,7 +33,7 @@ public class ScoreStatistics {
         }
     }
 
-    public void playerShot(Player player, Integer type, Integer Result){
+    public void playerShot(Player player, Integer type, int Result){
         boolean isHome = true;
         PlayerStatistics statistics= homePlayerStatisticsMap.get(player.getId());
         if (statistics == null){
@@ -41,13 +42,25 @@ public class ScoreStatistics {
         }
         if (type.equals(SHOT_TYPE.FREE_SHOT)){
             statistics.setFreeShotTotal(statistics.getFreeShotTotal() + 1);
-            if (Result == 1){
+            if (1 == Result){
                 statistics.setScore(statistics.getScore() + 1);
                 statistics.setFreeShotIn(statistics.getFreeShotIn() + 1);
                 if (isHome){
                     homeTeamScore += 1;
                 }else{
                     guestTeamScore += 1;
+                }
+            }
+        }
+        if (type.equals(SHOT_TYPE.TWP_POINT_SHOT)){
+            statistics.incTwoPointShotTotal();
+            if (1 == Result){
+                statistics.incScore(2);
+                statistics.incTwoPointShotIn();
+                if (isHome){
+                    homeTeamScore += 2;
+                }else{
+                    guestTeamScore += 2;
                 }
             }
         }
@@ -61,6 +74,34 @@ public class ScoreStatistics {
         private int threePointShotIn;
         private int freeShotTotal;
         private int freeShotIn;
+
+        public void incScore(int x){
+            score += x;
+        }
+
+        public void incTwoPointShotTotal(){
+            twoPointShotTotal += 1;
+        }
+
+        public void incTwoPointShotIn(){
+            twoPointShotIn += 1;
+        }
+
+        public void incThreePointShotTotal(){
+            threePointShotTotal += 1;
+        }
+
+        public void incThreePointShotIn(){
+            twoPointShotIn += 1;
+        }
+
+        public void incFreeShotTotal(){
+            freeShotTotal += 1;
+        }
+
+        public void incFreeShotIn(){
+            freeShotIn += 1;
+        }
 
         public int getScore() {
             return score;
