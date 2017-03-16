@@ -4,6 +4,7 @@ import com.opq.bb.elements.member.Player;
 import com.opq.bb.game.module.GameContext;
 import com.opq.bb.game.module.ScoreStatistics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class GameFactory {
 
         ScoreStatistics scoreStatistics = new ScoreStatistics(homeTeam, guestTeam);
         gameContext.setScoreStatistics(scoreStatistics);
+        gameContext.setOutputs(new ArrayList<>());
         return gameContext;
     }
 }

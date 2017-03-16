@@ -18,8 +18,8 @@ public class TwoPointShotState extends ShotState{
     @Override
     protected boolean isBlock(Player a, Player b) {
         Integer skillDis = a.getBaseSkill().getShot() - b.getBaseSkill().getBlock();
-        Integer bodyDis = a.getBaseSkill().getDump() + a.getBaseSkill().getHeight()
-                - b.getBaseSkill().getHeight() - b.getBaseSkill().getDump();
+        Integer bodyDis = a.getBaseSkill().getJump() + a.getBaseSkill().getHeight()
+                - b.getBaseSkill().getHeight() - b.getBaseSkill().getJump();
         if (Math.random() * -1000 > skillDis + bodyDis){
             return true;
         }

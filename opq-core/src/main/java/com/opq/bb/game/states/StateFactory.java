@@ -19,7 +19,7 @@ public class StateFactory {
     private static Map<String, State> stateMap;
     static {
         stateMap = new HashMap<>();
-        stateMap.put("reboudState", new ReboundState());
+        stateMap.put(TYPE.REBOUND_STATE, new ReboundState());
         stateMap.put("freeShotState", new FreeShotState());
         stateMap.put(TYPE.TWO_POINT_SHOT_STATE, new TwoPointShotState());
         stateMap.put(TYPE.FIGHT_4_BALL_STATE, new Fight4BallState());
@@ -31,7 +31,7 @@ public class StateFactory {
     }
 
     public static State getReboundState(){
-        return stateMap.get("reboundState");
+        return stateMap.get(TYPE.REBOUND_STATE);
     }
 
     public static State getFreeShotState(){

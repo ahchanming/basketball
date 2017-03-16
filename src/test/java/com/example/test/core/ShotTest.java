@@ -1,4 +1,4 @@
-package com.example.core;
+package com.example.test.core;
 
 import com.opq.bb.elements.member.Player;
 import com.opq.bb.factorys.GameFactory;

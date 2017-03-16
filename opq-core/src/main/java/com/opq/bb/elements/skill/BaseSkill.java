@@ -18,7 +18,7 @@ public class BaseSkill {
 
     //base
     private int speed;
-    private int dump;
+    private int jump;
     private int strong;
     private int energy;
     private int height;
@@ -103,12 +103,12 @@ public class BaseSkill {
         this.speed = speed;
     }
 
-    public int getDump() {
-        return dump;
+    public int getJump() {
+        return jump;
     }
 
-    public void setDump(int dump) {
-        this.dump = dump;
+    public void setJump(int jump) {
+        this.jump = jump;
     }
 
     public int getStrong() {
