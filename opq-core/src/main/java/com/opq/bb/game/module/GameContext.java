@@ -4,12 +4,19 @@ import com.opq.bb.elements.member.Player;
 import com.opq.bb.game.states.State;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * A basketBall Game Context
  * Created by opq.chen on 2017/3/8.
  */
 public class GameContext {
+
+    public interface BALL_CONTROLL_TYPE{
+        Integer HOME = 0;
+        Integer GUEST = 1;
+    }
+
     private Integer ballControll;
     private List<String> outputs;
     private List<Player> homeTeamPlayers;
@@ -20,6 +27,33 @@ public class GameContext {
     private State gameState;
     private ShotContext shotContext;
     private ScoreStatistics scoreStatistics;
+    private StartBallContext startBallContext;
+    private Map<Integer, Player> homePlayerOn;
+    private Map<Integer, Player> guestPlayerOn;
+
+    public Map<Integer, Player> getHomePlayerOn() {
+        return homePlayerOn;
+    }
+
+    public void setHomePlayerOn(Map<Integer, Player> homePlayerOn) {
+        this.homePlayerOn = homePlayerOn;
+    }
+
+    public Map<Integer, Player> getGuestPlayerOn() {
+        return guestPlayerOn;
+    }
+
+    public void setGuestPlayerOn(Map<Integer, Player> guestPlayerOn) {
+        this.guestPlayerOn = guestPlayerOn;
+    }
+
+    public StartBallContext getStartBallContext() {
+        return startBallContext;
+    }
+
+    public void setStartBallContext(StartBallContext startBallContext) {
+        this.startBallContext = startBallContext;
+    }
 
     public ScoreStatistics getScoreStatistics() {
         return scoreStatistics;
@@ -103,5 +137,17 @@ public class GameContext {
 
     public void execute(){
         this.getGameState().handler(this);
+    }
+
+    public void switchBallControll(){
+        if (ballControll.equals(BALL_CONTROLL_TYPE.HOME)){
+            ballControll = BALL_CONTROLL_TYPE.GUEST;
+        }else{
+            ballControll = BALL_CONTROLL_TYPE.HOME;
+        }
+    }
+
+    public boolean isHomeRound(){
+        return this.getBallControll().equals(BALL_CONTROLL_TYPE.HOME);
     }
 }
