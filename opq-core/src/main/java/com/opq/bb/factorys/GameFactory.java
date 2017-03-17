@@ -2,6 +2,7 @@ package com.opq.bb.factorys;
 
 import com.opq.bb.elements.member.Player;
 import com.opq.bb.game.module.GameContext;
+import com.opq.bb.game.module.PlayerContext;
 import com.opq.bb.game.module.ScoreStatistics;
 
 import java.util.ArrayList;
@@ -13,6 +14,10 @@ import java.util.List;
 public class GameFactory {
     public static GameContext createNewGame(List<Player> homeTeam, List<Player> guestTeam){
         GameContext gameContext = new GameContext();
+
+        PlayerContext playerContext = new PlayerContext(homeTeam, guestTeam);
+        gameContext.setPlayerContext(playerContext);
+
         gameContext.setHomeTeamPlayers(homeTeam);
         gameContext.setGuestTeamPlayers(guestTeam);
 

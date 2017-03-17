@@ -28,23 +28,16 @@ public class GameContext {
     private ShotContext shotContext;
     private ScoreStatistics scoreStatistics;
     private StartBallContext startBallContext;
-    private Map<Integer, Player> homePlayerOn;
-    private Map<Integer, Player> guestPlayerOn;
+    private AttackContext attackContext;
 
-    public Map<Integer, Player> getHomePlayerOn() {
-        return homePlayerOn;
+    private PlayerContext playerContext;
+
+    public PlayerContext getPlayerContext() {
+        return playerContext;
     }
 
-    public void setHomePlayerOn(Map<Integer, Player> homePlayerOn) {
-        this.homePlayerOn = homePlayerOn;
-    }
-
-    public Map<Integer, Player> getGuestPlayerOn() {
-        return guestPlayerOn;
-    }
-
-    public void setGuestPlayerOn(Map<Integer, Player> guestPlayerOn) {
-        this.guestPlayerOn = guestPlayerOn;
+    public void setPlayerContext(PlayerContext playerContext) {
+        this.playerContext = playerContext;
     }
 
     public StartBallContext getStartBallContext() {
@@ -149,5 +142,29 @@ public class GameContext {
 
     public boolean isHomeRound(){
         return this.getBallControll().equals(BALL_CONTROLL_TYPE.HOME);
+    }
+
+    public List<Player> getHomePlayerOn(){
+        return this.getPlayerContext().getHomePlayerOn();
+    }
+
+    public List<Player> getGuestPlayerOn(){
+        return this.getPlayerContext().getGuestPlayerOn();
+    }
+
+    public void addComment(String comment){
+        this.getOutputs().add(comment);
+    }
+
+    public void addComments(List<String> comments){
+        this.getOutputs().addAll(comments);
+    }
+
+    public AttackContext getAttackContext() {
+        return attackContext;
+    }
+
+    public void setAttackContext(AttackContext attackContext) {
+        this.attackContext = attackContext;
     }
 }

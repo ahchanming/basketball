@@ -15,6 +15,7 @@ public class StateFactory {
         String TWO_POINT_SHOT_STATE = "twoPointShotState";
         String START_BALL_STATE = "startBallState";
         String FIGHT_4_BALL_STATE = "fight4BallState";
+        String ATTACK_STATE = "attackState";
     }
     private static Map<String, State> stateMap;
     static {
@@ -24,6 +25,7 @@ public class StateFactory {
         stateMap.put(TYPE.TWO_POINT_SHOT_STATE, new TwoPointShotState());
         stateMap.put(TYPE.FIGHT_4_BALL_STATE, new Fight4BallState());
         stateMap.put(TYPE.START_BALL_STATE, new StartBallState());
+        stateMap.put(TYPE.ATTACK_STATE, new AttckState());
     }
 
     public static State getState(String stateName){
@@ -48,5 +50,9 @@ public class StateFactory {
 
     public static State getFight4BallState(){
         return stateMap.get(TYPE.FIGHT_4_BALL_STATE);
+    }
+
+    public static State getAttackState(){
+        return stateMap.get(TYPE.ATTACK_STATE);
     }
 }

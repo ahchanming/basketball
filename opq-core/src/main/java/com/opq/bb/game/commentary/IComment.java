@@ -11,4 +11,6 @@ import java.util.List;
 public interface IComment {
     public String getComment(GameContext context, Integer result);
 
+    public String getComment(List<Player> selectA, List<Player> selectB, Integer result);
+
 }

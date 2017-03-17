@@ -37,4 +37,8 @@ public class GameUtil {
         }
         return abilities.size() - 1;
     }
+
+    public static Integer random(Integer total){
+        return (int)Math.floor(Math.random() * total);
+    }
 }

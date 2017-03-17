@@ -9,6 +9,16 @@ public class ShotContext {
     private Integer freeShotTime;
     private Player assistPlayer;
 
+    private Player shotPlayer;
+
+    public Player getShotPlayer() {
+        return shotPlayer;
+    }
+
+    public void setShotPlayer(Player shotPlayer) {
+        this.shotPlayer = shotPlayer;
+    }
+
     public Player getAssistPlayer() {
         return assistPlayer;
     }

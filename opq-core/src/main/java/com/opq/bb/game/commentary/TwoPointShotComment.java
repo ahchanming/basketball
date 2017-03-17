@@ -4,6 +4,8 @@ import com.opq.bb.elements.member.Player;
 import com.opq.bb.game.module.GameContext;
 import org.apache.commons.collections4.CollectionUtils;
 
+import java.util.List;
+
 /**
  * Created by opq.chen on 2017/3/13.
  */
@@ -20,5 +22,10 @@ public class TwoPointShotComment implements IComment{
         }else{
             return aPlayer.getName() + "拿球就投， 有了";
         }
+    }
+
+    @Override
+    public String getComment(List<Player> selectA, List<Player> selectB, Integer result) {
+        return null;
     }
 }
