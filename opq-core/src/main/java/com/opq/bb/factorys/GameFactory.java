@@ -24,6 +24,7 @@ public class GameFactory {
         ScoreStatistics scoreStatistics = new ScoreStatistics(homeTeam, guestTeam);
         gameContext.setScoreStatistics(scoreStatistics);
         gameContext.setOutputs(new ArrayList<>());
+        gameContext.setBallControll(GameContext.BALL_CONTROLL_TYPE.HOME);
         return gameContext;
     }
 }

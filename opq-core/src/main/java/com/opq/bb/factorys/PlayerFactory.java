@@ -27,7 +27,7 @@ public class PlayerFactory {
         Player player = new Player();
         player.setName(name);
         player.setId("" + player);
-        BaseSkill baseSkill = new BaseSkill();
+        BaseSkill baseSkill = player.getBaseSkill();
         baseSkill.setHeight(getRandom(170, 230));
         baseSkill.setRebound(getRandom(200, 700));
         baseSkill.setShot(getRandom(200, 700));

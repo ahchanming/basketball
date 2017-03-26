@@ -17,7 +17,7 @@ public class StartBallComment implements IComment{
     @Override
     public String getComment(List<Player> selectA, List<Player> selectB, Integer result) {
         Player a = selectA.get(0);
-        Player b = selectB.get(2);
+        Player b = selectA.get(1);
         return "边线开球 " + a.getName() + " 将球传给 " + b.getName();
     }
 }
