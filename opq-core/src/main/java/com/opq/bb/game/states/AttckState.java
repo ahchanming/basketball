@@ -18,7 +18,9 @@ public class AttckState implements State{
         AttackContext attackContext = context.getAttackContext();
         int selectIndex = GameUtil.random(5);
         ShotContext shotContext = new ShotContext();
-
+        shotContext.setShotPlayer(attackContext.getAttackPlayers().get(selectIndex));
+        shotContext.setDefencePlayers(attackContext.getDefencePlayers().subList(selectIndex, selectIndex + 1));
         context.setShotContext(shotContext);
+        context.setGameState(StateFactory.getTwoPointShotState());
     }
 }

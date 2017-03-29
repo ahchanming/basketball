@@ -6,6 +6,7 @@ import com.opq.bb.game.commentary.TwoPointShotComment;
 import com.opq.bb.game.module.GameContext;
 
 import com.opq.bb.game.module.ScoreStatistics;
+import com.opq.bb.game.module.ShotContext;
 import org.apache.commons.collections4.CollectionUtils;
 
 /**
@@ -38,10 +39,11 @@ public class TwoPointShotState extends ShotState{
      */
     @Override
     protected double calcInRate(GameContext context) {
-        Player shotPlayer = context.getSelectA().get(0);
+        ShotContext shotContext = context.getShotContext();
+        Player shotPlayer = shotContext.getShotPlayer();
         Player blockPlayer = null;
-        if (CollectionUtils.isNotEmpty(context.getSelectB())){
-            blockPlayer = context.getSelectB().get(0);
+        if (CollectionUtils.isNotEmpty(shotContext.getDefencePlayers())){
+            blockPlayer = shotContext.getDefencePlayers().get(0);
         }
         if (blockPlayer == null){
             double rate = adjustShotRate(blockPlayer.getBaseSkill().getShot());

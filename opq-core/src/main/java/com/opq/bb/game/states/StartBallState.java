@@ -1,6 +1,7 @@
 package com.opq.bb.game.states;
 
 import com.opq.bb.elements.member.Player;
+import com.opq.bb.factorys.ContextFactory;
 import com.opq.bb.game.commentary.IComment;
 import com.opq.bb.game.commentary.StartBallComment;
 import com.opq.bb.game.module.AttackContext;
@@ -24,8 +25,7 @@ public class StartBallState implements State{
         startBallPlayer.add(startBallContext.getSelectA().get(1));
         startBallPlayer.add(startBallContext.getSelectA().get(0));
         context.addComment(comment.getComment(startBallPlayer, new ArrayList<>(), 0));
-        AttackContext attackContext = new AttackContext();
-        attackContext.setFrontCourt(startBallContext.isFrontCourt());
+        context.setAttackContext(ContextFactory.createAttackContext(context));
         context.setGameState(StateFactory.getAttackState());
     }
 }

@@ -1,6 +1,7 @@
 package com.opq.bb.factorys;
 
 import com.opq.bb.game.commentary.StartBallComment;
+import com.opq.bb.game.module.AttackContext;
 import com.opq.bb.game.module.GameContext;
 import com.opq.bb.game.module.StartBallContext;
 
@@ -18,5 +19,17 @@ public class ContextFactory {
             startBallContext.setSelectB(context.getHomeTeamPlayers());
         }
         return startBallContext;
+    }
+
+    public static AttackContext createAttackContext(GameContext context){
+        AttackContext attackContext = new AttackContext();
+        if (context.isHomeRound()){
+            attackContext.setAttackPlayers(context.getHomeTeamPlayers());
+            attackContext.setDefencePlayers(context.getGuestTeamPlayers());
+        }else{
+            attackContext.setAttackPlayers(context.getGuestTeamPlayers());
+            attackContext.setDefencePlayers(context.getHomeTeamPlayers());
+        }
+        return attackContext;
     }
 }
