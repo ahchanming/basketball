@@ -34,4 +34,8 @@ public abstract class ShotState implements State{
         //计分
         //取得下一个状态
     }
+
+    protected Player getShotPlaer(GameContext context){
+        return context.getShotContext().getShotPlayer();
+    }
 }

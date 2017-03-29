@@ -1,6 +1,7 @@
 package com.opq.bb.game.states;
 
 import com.opq.bb.elements.member.Player;
+import com.opq.bb.game.commentary.BlockComment;
 import com.opq.bb.game.commentary.IComment;
 import com.opq.bb.game.commentary.TwoPointShotComment;
 import com.opq.bb.game.module.GameContext;
@@ -9,12 +10,17 @@ import com.opq.bb.game.module.ScoreStatistics;
 import com.opq.bb.game.module.ShotContext;
 import org.apache.commons.collections4.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by opq.chen on 2017/3/10.
  */
 public class TwoPointShotState extends ShotState{
 
     private IComment comment = new TwoPointShotComment();
+
+    private IComment blockComment = new BlockComment();
 
     @Override
     protected boolean isBlock(Player a, Player b) {
@@ -56,10 +62,15 @@ public class TwoPointShotState extends ShotState{
 
     @Override
     protected State getShotResult(GameContext context) {
-        Player player = context.getSelectA().get(0);
+        Player player = getShotPlaer(context);
         double rate = calcInRate(context);
         if (rate == -1){
             System.out.println("Oh block!!!");
+            List<Player> shotPlayer = new ArrayList<>();
+            shotPlayer.add(player);
+            List<Player> defencePlayer = new ArrayList<>();
+            defencePlayer = context.getShotContext().getDefencePlayers();
+            context.addComment(blockComment.getComment(shotPlayer, defencePlayer, 0));
             return StateFactory.getFight4BallState();
         }else if (rate == -2){
             System.out.println("Defence foul");

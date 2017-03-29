@@ -36,6 +36,7 @@ public class Gametest extends TestBase{
         gameContext.setStartBallContext(ContextFactory.createStartBallContext(gameContext));
         gameContext.execute();
         gameContext.execute();
+        gameContext.execute();
         System.out.println("Hello World");
     }
 }
